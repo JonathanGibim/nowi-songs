@@ -55,6 +55,7 @@ h1, h2 {
 	box-shadow: none;
 }
 
+/* TABLE */
 .table-primary, .table-primary td, .table-primary th, .table-primary a {
 	color: var(--cor-secundaria)!important;
 	border-color: var(--cor-secundaria)!important;
@@ -68,6 +69,10 @@ h1, h2 {
 }
 .table-primary tr td i{
 	font-size: 25px;
+}
+.table .audio-nowi{
+	margin-top: 2px;
+	height: 25px;
 }
 
 /* TEXT */

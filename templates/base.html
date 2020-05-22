@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Icones Materia design -->
+    <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <!-- Icones fontawesome -->
+    <script src="https://kit.fontawesome.com/83416f206d.js" crossorigin="anonymous"></script>
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Nowi Songs</title>
+</head>
+
+<body class="d-flex flex-column h-100 bg-light">
+    <header>
+
+        <!-- Inicio Menu -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <a class="navbar-brand" href="/"><img src="../static/img/logo.png" class="logo"></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/musicas/"><i class="fas fa-music"></i> Músicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/artistas/"><i class="fas fa-microphone-alt"></i> Artistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/albuns/"><i class="fas fa-compact-disc"></i> Álbuns</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+        <!-- Fim menu -->
+
+    </header>
+    <main role="main">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+    <footer class="footer mt-auto">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Ir ao topo</a>
+            </p>
+            <p>
+                Desenvolvido por <a href="https://www.nowi.com.br"><b>Nowi</b></a>
+            </p>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/jquery-3.4.1.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>
