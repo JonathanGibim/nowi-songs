@@ -8,14 +8,14 @@
         <div class="row">
             <form class="form-inline row col-12" method="POST">
                 <div class="col-12">
-                    <h2>Buscar música</h2>
+                    <h2>Buscar album</h2>
                     <p>
-                        Busque através do nome da música e divirta-se.
+                        Busque através do nome da album e divirta-se.
                     </p>
                 </div>
                 <div class="form-group mb-2 col-12 col-md-6 col-lg-6">
-                    <label for="musica" class="sr-only">Música</label>
-                    <input type="text" class="form-control w-100" id="musica" name="musica" required value="{{ busca }}" placeholder="Nome da música">
+                    <label for="album" class="sr-only">Album</label>
+                    <input type="text" class="form-control w-100" id="album" name="album" required value="{{ busca }}" placeholder="Nome da album">
                 </div>
                 <div class="form-group col-12 col-md-6 col-lg-2">
                     <button type="submit" class="btn btn-secundary w-100 mb-2"><i class="fas fa-search"></i>
@@ -25,27 +25,25 @@
         </div>
         <div class="container mt-5 mb-5">
             <div class="row">
-                <h2>Músicas</h2>
+                <h2>Albums</h2>
                 <table class="table table-striped table-primary mt-3">
                     <thead>
                         <tr>
-                            <th scope="col"><i class="fas fa-music"></i></th>
-                            <th scope="col">Música</th>
-                            <th scope="col">Artista</th>
-                            <th scope="col">Álbum</th>
-                            <th scope="col">Prévia</th>
+                            <th scope="col"><i class="fas fa-compact-disc"></i></th>
+                            <th scope="col">Album</th>
+                            <th scope="col">Artistas</th>
+                            <th scope="col">Nº Faixas</th>
                             <th scope="col">Spotify</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for musica in musicas %}
+                        {% for album in albuns %}
                         <tr>
-                            <th><i class="fas fa-music"></i></th>
-                            <td>{{ musica.nome }}</td>
-                            <td>{{ musica.artistas }}</td>
-                            <td>{{ musica.album }}</td>
-                            <td><audio controls="" name="media" class="audio-nowi"><source src="{{ musica.url }}" type="audio/mpeg"/></audio></td>
-                            <td class="text-center"><a href="{{ musica.url_externa }}" target="_bank" ><i class="fab fa-spotify"></i></a></td>
+                            <td><img src="{{ album.imagem }}" width="70"></td>
+                            <td>{{ album.nome }}</td>
+                            <td>{{ album.artistas }}</td>
+                            <td>{{ album.qtde_faixas }}</td>
+                            <td class="text-center"><a href="{{ album.url_externa }}" target="_bank" ><i class="fab fa-spotify"></i></a></td>
                         </tr>
                         {% endfor %}
                     </tbody>

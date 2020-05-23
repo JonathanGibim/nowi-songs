@@ -46,17 +46,19 @@
                         <th scope="col">Música</th>
                         <th scope="col">Artista</th>
                         <th scope="col">Álbum</th>
-                        <th scope="col">Play</th>
+                        <th scope="col">Prévia</th>
+                        <th scope="col">Spotify</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for musica in musicas %}
                     <tr>
-                        <th scope="row"><i class="fas fa-music"></i></th>
+                        <th><i class="fas fa-music"></i></th>
                         <td>{{ musica.nome }}</td>
                         <td>{{ musica.artistas }}</td>
                         <td>{{ musica.album }}</td>
-                        <td><a href="#modal-song" data-toggle="modal" data-target="#modal-song"><i class="fab fa-youtube"></i></a></td>
+                        <td><audio controls="" name="media" class="audio-nowi"><source src="{{ musica.url }}" type="audio/mpeg"/></audio></td>
+                        <td class="text-center"><a href="{{ musica.url_externa }}" target="_bank" ><i class="fab fa-spotify"></i></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -69,22 +71,38 @@
 <div class="bg-primary text-secundary p-2">
     <div class="container mt-5 mb-5">
         <div class="row">
-            <form class="form-inline col-12">
-                <div class="col-12">
-                    <h2>Buscas</h2>
-                    <p>
-                        Busque através do nome do artista ou nome da música e divirta-se.
-                    </p>
+            <div class="col-12">
+                <h2>Buscas</h2>
+                <p>
+                    Busque através do nome de música, artista ou álbum e divirta-se.
+                </p>
+            </div>
+            <form class="form-inline row col-12" method="POST" action="/musicas/">
+                <div class="form-group mb-2 col-12 col-md-6 col-lg-6">
+                    <label for="musica" class="sr-only">Música</label>
+                    <input type="text" class="form-control w-100" id="musica" name="musica" required placeholder="Nome da música">
                 </div>
-                <div class="form-group mb-2 col-6 col-md-4 col-lg-4">
+                <div class="form-group col-12 col-md-6 col-lg-2">
+                    <button type="submit" class="btn btn-secundary w-100 mb-2"><i class="fas fa-search"></i>
+                    Buscar</button>
+                </div>
+            </form>
+            <form class="form-inline row col-12" method="POST" action="/artistas/">
+                <div class="form-group mb-2 col-12 col-md-6 col-lg-6">
                     <label for="artista" class="sr-only">Artista</label>
-                    <input type="text" class="form-control w-100" id="artista" name="artista" placeholder="Nome do artista">
+                    <input type="text" class="form-control w-100" id="artista" name="artista" required placeholder="Nome do artista">
                 </div>
-                <div class="form-group mb-2 col-6 col-md-4 col-lg-4">
-                    <label for="musica" class="sr-only">Email</label>
-                    <input type="text" class="form-control w-100" id="musica" name="musica" placeholder="Nome da música">
+                <div class="form-group col-12 col-md-6 col-lg-2">
+                    <button type="submit" class="btn btn-secundary w-100 mb-2"><i class="fas fa-search"></i>
+                    Buscar</button>
                 </div>
-                <div class="form-group col-12 col-md-4 col-lg-2">
+            </form>
+            <form class="form-inline row col-12" method="POST" action="/albuns/">
+                <div class="form-group mb-2 col-12 col-md-6 col-lg-6">
+                    <label for="album" class="sr-only">Álbum</label>
+                    <input type="text" class="form-control w-100" id="album" name="album" required placeholder="Nome do álbum">
+                </div>
+                <div class="form-group col-12 col-md-6 col-lg-2">
                     <button type="submit" class="btn btn-secundary w-100 mb-2"><i class="fas fa-search"></i>
                     Buscar</button>
                 </div>
@@ -122,8 +140,9 @@
 </div>
 <!--/ Quem Somos -->
 
+<!-- Modal
+<a href="#modal-song" data-toggle="modal" data-target="#modal-song"><i class="fab fa-youtube"></i></a>
 
-<!-- Modal -->
 <div class="modal fade" id="modal-song" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -198,5 +217,6 @@
         </div>
     </div>
 </div>
+-->
 
 {% endblock %}
